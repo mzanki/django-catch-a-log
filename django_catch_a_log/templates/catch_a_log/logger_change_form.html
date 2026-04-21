@@ -1,0 +1,40 @@
+{% extends 'admin/change_form.html' %}
+
+{% block submit_buttons_bottom %}
+    {{ block.super }}
+    <h3>Related Context Logs</h3>
+    <div class="submit-row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>CID</th>
+                    <th>Level</th>
+                    <th>Logger Name</th>
+                    <th>Logged at</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in related_logs %}
+                    {% if log.pk == original.pk %}
+                        <tr>
+                    {% else %}
+                        <tr>
+                    {% endif %}
+                        <td><a  href="{% url 'admin:catch_a_log_logginglog_change' log.id %}">{{ log.id }}</a></td>
+                        <td>{{ log.cid }}</td>
+                        <td>{{ log.get_level_display }}</td>
+                        <td>{{ log.logger_name }}</td>
+                        <td>{{ log.created_at|date:"Y-m-d H:i:s.u" }}</td>
+                        <td>{{ log.msg }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4">No logs available.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

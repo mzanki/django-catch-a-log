@@ -1,0 +1,14 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block object-tools-items %}
+    {{ block.super }}
+
+    {% if original %}
+    <li>
+        <a href="{% url 'admin:catch_a_log_auditlog_changelist' %}?model_name={{ opts.label }}&object_id={{ original.pk }}" class="historylink" style="background-color: #417690; color: white;">
+            {% translate "View Audit Logs" %}
+        </a>
+    </li>
+    {% endif %}
+{% endblock %}
