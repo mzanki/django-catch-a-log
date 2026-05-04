@@ -49,13 +49,13 @@ get every request, or use `LOG_SELECTED_STATUSES` for a precise allowlist.
 The package is not on PyPI. Install it directly from the repository:
 
 ```bash
-pip install git+https://github.com/<your-user>/dj-catch-a-log.git
+pip install git+https://github.com/mzanki/dj-catch-a-log.git
 ```
 
 Or pin a tag / branch:
 
 ```bash
-pip install git+https://github.com/<your-user>/dj-catch-a-log.git@main
+pip install git+https://github.com/mzanki/dj-catch-a-log.git@main
 ```
 
 
